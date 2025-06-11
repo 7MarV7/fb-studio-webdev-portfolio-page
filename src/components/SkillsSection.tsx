@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { skillsData, type SkillCategory } from '@/lib/data';
 import { Code2, Server, ToyBrick, Wrench, CheckCircle2 } from 'lucide-react'; // Using CheckCircle2 for list items
 import React from 'react';
+import { cn } from "@/lib/utils";
 
 const iconMap: Record<SkillCategory["iconName"], React.ElementType> = {
   Code2: Code2,
@@ -27,7 +28,13 @@ const SkillsSection: React.FC = () => {
           {skillsData.map((category) => {
             const IconComponent = iconMap[category.iconName];
             return (
-              <Card key={category.title} className="shadow-lg hover:shadow-primary/20 transition-shadow duration-300">
+              <Card 
+                key={category.title} 
+                className={cn(
+                  "shadow-lg hover:shadow-primary/20 transition-shadow duration-300",
+                  "hover:border-accent transition-colors" // Added for yellow border on hover
+                )}
+              >
                 <CardHeader className="flex flex-row items-center gap-3 space-y-0 pb-2">
                   {IconComponent && <IconComponent className="h-8 w-8 text-accent" />}
                   <CardTitle className="text-xl font-headline">{category.title}</CardTitle>
