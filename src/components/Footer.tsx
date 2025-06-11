@@ -14,12 +14,12 @@ const Footer: React.FC = () => {
             <p className="text-sm font-semibold text-foreground">Vividfolio</p>
         </div>
         <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 mb-4 text-sm">
-          <Link href="/impressum" className="hover:text-accent transition-colors">
-            Impressum
+          <Link href="/imprint" className="hover:text-accent transition-colors">
+            Imprint
           </Link>
           <span className="hidden sm:inline text-border">|</span>
-          <Link href="/datenschutz" className="hover:text-accent transition-colors">
-            Datenschutz
+          <Link href="/privacy-policy" className="hover:text-accent transition-colors">
+            Privacy Policy
           </Link>
         </div>
         <p className="text-sm">
