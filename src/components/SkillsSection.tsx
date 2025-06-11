@@ -1,10 +1,12 @@
+
 'use client';
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { skillsData, type SkillCategory } from '@/lib/data';
-import { Code2, Server, ToyBrick, Wrench, CheckCircle2 } from 'lucide-react'; // Using CheckCircle2 for list items
+import { Code2, Server, ToyBrick, Wrench, CheckCircle2 } from 'lucide-react'; 
 import React from 'react';
 import { cn } from "@/lib/utils";
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const iconMap: Record<SkillCategory["iconName"], React.ElementType> = {
   Code2: Code2,
@@ -14,24 +16,27 @@ const iconMap: Record<SkillCategory["iconName"], React.ElementType> = {
 };
 
 const SkillsSection: React.FC = () => {
+  const { t } = useLanguage();
   return (
     <section id="skills" className="py-16 md:py-24 bg-background">
       <div className="container px-4 md:px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Core Competencies</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground">{t('skillsTitle')}</h2>
           <p className="mt-3 text-lg text-muted-foreground max-w-2xl mx-auto">
-            A versatile skill set honed through experience and continuous learning.
+            {t('skillsSubtitle')}
           </p>
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {skillsData.map((category) => {
             const IconComponent = iconMap[category.iconName];
+            // Category titles and skill names from data.ts are not yet translated by this setup.
+            // For a full translation, these would also need keys in translations.ts and be accessed via t().
             return (
               <Card 
                 key={category.title} 
                 className={cn(
-                  "shadow-lg hover:shadow-accent/20 transition-shadow duration-300" // Removed hover:border-accent
+                  "shadow-lg hover:shadow-accent/20 transition-shadow duration-300"
                 )}
               >
                 <CardHeader className="flex flex-row items-center gap-3 space-y-0 pb-2">

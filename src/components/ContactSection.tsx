@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useState } from 'react';
@@ -9,6 +10,7 @@ import { socialLinksData, contactEmail } from '@/lib/data';
 import { Linkedin, Github, Mail, Send, Loader2 } from 'lucide-react';
 import Link from 'next/link';
 import { useToast } from "@/hooks/use-toast";
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const iconMap = {
   Linkedin: Linkedin,
@@ -20,6 +22,7 @@ const ContactSection: React.FC = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+  const { t } = useLanguage();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -32,7 +35,7 @@ const ContactSection: React.FC = () => {
     await new Promise(resolve => setTimeout(resolve, 1500));
     console.log('Form data submitted:', formData);
     toast({
-      title: "Message Sent!",
+      title: "Message Sent!", // This toast message could also be translated
       description: "Thanks for reaching out. I'll get back to you soon.",
     });
     setFormData({ name: '', email: '', message: '' });
@@ -43,21 +46,21 @@ const ContactSection: React.FC = () => {
     <section id="contact" className="py-16 md:py-24 bg-secondary/30">
       <div className="container px-4 md:px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Let's Connect</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground">{t('contactTitle')}</h2>
           <p className="mt-3 text-lg text-muted-foreground max-w-xl mx-auto">
-            Have a project in mind or just want to say hi? Feel free to reach out.
+            {t('contactSubtitle')}
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
           <form onSubmit={handleSubmit} className="space-y-6 bg-card p-6 sm:p-8 rounded-lg shadow-xl">
             <div>
-              <Label htmlFor="name" className="text-sm font-medium">Full Name</Label>
+              <Label htmlFor="name" className="text-sm font-medium">{t('contactFullName')}</Label>
               <Input 
                 id="name" 
                 name="name" 
                 type="text" 
-                placeholder="Your Name" 
+                placeholder={t('contactYourName')}
                 value={formData.name}
                 onChange={handleChange}
                 required 
@@ -65,12 +68,12 @@ const ContactSection: React.FC = () => {
               />
             </div>
             <div>
-              <Label htmlFor="email" className="text-sm font-medium">Email Address</Label>
+              <Label htmlFor="email" className="text-sm font-medium">{t('contactEmailAddress')}</Label>
               <Input 
                 id="email" 
                 name="email" 
                 type="email" 
-                placeholder="you@example.com" 
+                placeholder={t('contactYourEmail')}
                 value={formData.email}
                 onChange={handleChange}
                 required 
@@ -78,11 +81,11 @@ const ContactSection: React.FC = () => {
               />
             </div>
             <div>
-              <Label htmlFor="message" className="text-sm font-medium">Message</Label>
+              <Label htmlFor="message" className="text-sm font-medium">{t('contactMessage')}</Label>
               <Textarea 
                 id="message" 
                 name="message" 
-                placeholder="Your message..." 
+                placeholder={t('contactYourMessage')}
                 rows={5}
                 value={formData.message}
                 onChange={handleChange}
@@ -96,23 +99,24 @@ const ContactSection: React.FC = () => {
               ) : (
                 <Send className="mr-2 h-4 w-4" />
               )}
-              Send Message
+              {t('contactSendMessage')}
             </Button>
           </form>
 
           <div className="space-y-8 pt-8 md:pt-0">
             <div>
-              <h3 className="text-xl font-semibold text-foreground mb-3">Direct Contact</h3>
+              <h3 className="text-xl font-semibold text-foreground mb-3">{t('contactDirectContact')}</h3>
               <a href={`mailto:${contactEmail}`} className="flex items-center gap-3 text-muted-foreground hover:text-accent transition-colors group">
                 <Mail className="h-6 w-6 text-foreground/70 group-hover:text-accent transition-colors" />
                 <span>{contactEmail}</span>
               </a>
             </div>
             <div>
-              <h3 className="text-xl font-semibold text-foreground mb-4">Find me on Social Media</h3>
+              <h3 className="text-xl font-semibold text-foreground mb-4">{t('contactFindMeSocial')}</h3>
               <div className="flex space-x-6">
                 {socialLinksData.map((social) => {
                   const IconComponent = iconMap[social.iconName];
+                  // Social link names from data.ts are not translated by this setup.
                   return (
                     <Link key={social.name} href={social.url} target="_blank" rel="noopener noreferrer" aria-label={social.name}
                       className="text-muted-foreground hover:text-accent transition-colors">
@@ -123,9 +127,9 @@ const ContactSection: React.FC = () => {
               </div>
             </div>
              <div className="mt-8 p-6 border border-dashed border-border rounded-lg bg-card/50">
-                <h4 className="font-semibold text-foreground mb-2">Prefer a Quick Chat?</h4>
+                <h4 className="font-semibold text-foreground mb-2">{t('contactQuickChat')}</h4>
                 <p className="text-sm text-muted-foreground">
-                    I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.
+                    {t('contactQuickChatDesc')}
                 </p>
             </div>
           </div>

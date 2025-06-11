@@ -1,16 +1,23 @@
 
+'use client';
+
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
-export const metadata = {
-  title: 'Imprint - Vividfolio',
-  description: 'Imprint for Vividfolio.',
-};
+// Metadata should be handled differently for multilingual sites, typically via route segments or specialized libraries.
+// For now, keeping it simple.
+// export const metadata = {
+//   title: 'Imprint - Vividfolio',
+//   description: 'Imprint for Vividfolio.',
+// };
 
 export default function ImprintPage() {
+  const { t } = useLanguage();
+
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Navbar />
@@ -19,10 +26,10 @@ export default function ImprintPage() {
           <Link href="/" passHref>
             <Button variant="outline" className="mb-8 group">
               <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" />
-              Back to Home
+              {t('backToHome')}
             </Button>
           </Link>
-          <h1 className="text-3xl sm:text-4xl font-bold text-foreground mb-8">Imprint</h1>
+          <h1 className="text-3xl sm:text-4xl font-bold text-foreground mb-8">{t('imprintTitle')}</h1>
           
           <div className="bg-card p-6 sm:p-8 rounded-lg shadow-xl">
             <div className="prose prose-lg dark:prose-invert max-w-none">
