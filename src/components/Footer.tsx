@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { Aperture } from "lucide-react";
 import Link from "next/link";

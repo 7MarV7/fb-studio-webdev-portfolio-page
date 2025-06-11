@@ -32,10 +32,11 @@ export default function ImprintPage() {
                 Consult a legal expert for this purpose.
               </p>
 
-              <h2>Information pursuant to § 5 TMG</h2>
+              <h2>Information pursuant to § 5 TMG (German Telemedia Act) or equivalent local regulations</h2>
               <p>[Your Name/Company Name]</p>
               <p>[Your Street and House Number]</p>
               <p>[Your Postal Code and City]</p>
+              <p>[Your Country]</p>
 
               <h2>Represented by:</h2>
               <p>[Name of authorized representative, if applicable]</p>
@@ -44,14 +45,14 @@ export default function ImprintPage() {
               <p>Phone: [Your phone number, if available]</p>
               <p>Email: [Your email address]</p>
               
-              <h2>VAT ID:</h2>
-              <p>Sales tax identification number according to §27a Value Added Tax Act:</p>
-              <p>[Your VAT ID, if available]</p>
+              <h2>VAT ID / Tax ID:</h2>
+              <p>Sales tax identification number according to [relevant law, e.g., §27a Value Added Tax Act if applicable]:</p>
+              <p>[Your VAT ID or Tax ID, if available/applicable]</p>
 
-              <h2>Responsible for the content according to § 55 Abs. 2 RStV:</h2>
-              <p>[Name and address of the person responsible for the content]</p>
+              <h2>Responsible for the content according to [relevant law, e.g., § 55 Abs. 2 RStV in Germany]:</h2>
+              <p>[Name and address of the person responsible for the content, if different from above]</p>
               
-              <h2>EU Dispute Resolution</h2>
+              <h2>Dispute Resolution</h2>
               <p>
                 The European Commission provides a platform for online dispute resolution (ODR): 
                 <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer">
@@ -61,12 +62,12 @@ export default function ImprintPage() {
               </p>
               <p>
                 We are not willing or obliged to participate in dispute resolution proceedings before a 
-                consumer arbitration board.
+                consumer arbitration board (or specify if you are).
               </p>
 
               <h3>Liability for Content</h3>
               <p>
-                As service providers, we are liable for own contents of these websites according to Sec. 7, paragraph 1 German Telemedia Act (TMG). However, according to Sec. 8 to 10 German Telemedia Act (TMG), service providers are not obligated to permanently monitor submitted or stored information or to search for evidences that indicate illegal activities.
+                As service providers, we are liable for own contents of these websites according to general laws. However, service providers are not obligated to permanently monitor submitted or stored information or to search for evidences that indicate illegal activities.
               </p>
               <p>
                 Legal obligations to removing information or to blocking the use of information remain unchallenged. In this case, liability is only possible at the time of knowledge about a specific violation of law. Illegal contents will be removed immediately at the time we get knowledge of them.
@@ -82,7 +83,7 @@ export default function ImprintPage() {
 
               <h3>Copyright</h3>
               <p>
-                Contents and compilations published on these websites by the providers are subject to German copyright laws. Reproduction, editing, distribution as well as the use of any kind outside the scope of the copyright law require a written permission of the author or originator. Downloads and copies of these websites are permitted for private use only.
+                Contents and compilations published on these websites by the providers are subject to copyright laws. Reproduction, editing, distribution as well as the use of any kind outside the scope of the copyright law require a written permission of the author or originator. Downloads and copies of these websites are permitted for private use only.
               </p>
               <p>
                 The commercial use of our contents without permission of the originator is prohibited. Copyright laws of third parties are respected as long as the contents on these websites do not originate from the provider. Contributions of third parties on this site are indicated as such. However, if you notice any violations of copyright law, please inform us. Such contents will be removed immediately.
