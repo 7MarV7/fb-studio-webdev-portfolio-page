@@ -1,6 +1,7 @@
 'use client';
 
 import { Aperture } from "lucide-react";
+import Link from "next/link";
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -11,6 +12,15 @@ const Footer: React.FC = () => {
         <div className="flex flex-col items-center justify-center gap-2 mb-4">
             <Aperture className="h-8 w-8 text-accent" />
             <p className="text-sm font-semibold text-foreground">Vividfolio</p>
+        </div>
+        <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 mb-4 text-sm">
+          <Link href="/impressum" className="hover:text-accent transition-colors">
+            Impressum
+          </Link>
+          <span className="hidden sm:inline text-border">|</span>
+          <Link href="/datenschutz" className="hover:text-accent transition-colors">
+            Datenschutz
+          </Link>
         </div>
         <p className="text-sm">
           &copy; {currentYear} Vividfolio. All rights reserved.
