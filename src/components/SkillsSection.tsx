@@ -31,8 +31,8 @@ const SkillsSection: React.FC = () => {
               <Card 
                 key={category.title} 
                 className={cn(
-                  "shadow-lg hover:shadow-primary/20 transition-shadow duration-300",
-                  "hover:border-accent transition-colors" // Added for yellow border on hover
+                  "shadow-lg hover:shadow-accent/20 transition-shadow duration-300", // Changed hover shadow to accent
+                  "hover:border-accent transition-colors"
                 )}
               >
                 <CardHeader className="flex flex-row items-center gap-3 space-y-0 pb-2">
