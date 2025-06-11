@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Menu, Aperture } from 'lucide-react';
+import { Menu, Aperture, Globe } from 'lucide-react';
 import React from 'react';
 import { ThemeToggleButton } from '@/components/ThemeToggleButton';
 
@@ -25,7 +25,7 @@ const Navbar: React.FC = () => {
           <span className="font-headline text-2xl font-bold text-foreground">Vividfolio</span>
         </Link>
         
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1 md:gap-2">
           <nav className="hidden md:flex gap-1">
             {navLinks.map((link) => (
               <Button key={link.href} variant="ghost" asChild>
@@ -34,6 +34,9 @@ const Navbar: React.FC = () => {
             ))}
           </nav>
           <ThemeToggleButton />
+          <Button variant="ghost" size="icon" aria-label="Change language (placeholder)" onClick={() => alert('Language switching functionality not yet implemented.')}>
+            <Globe className="h-[1.2rem] w-[1.2rem]" />
+          </Button>
           <div className="md:hidden">
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
@@ -52,6 +55,10 @@ const Navbar: React.FC = () => {
                       <Link href={link.href}>{link.label}</Link>
                     </Button>
                   ))}
+                  {/* Placeholder for language switch in mobile menu if needed later */}
+                  {/* <Button variant="ghost" className="w-full justify-start text-lg" onClick={() => { alert('Language switching functionality not yet implemented.'); setIsOpen(false);}}>
+                    <Globe className="mr-2 h-5 w-5" /> Change Language
+                  </Button> */}
                 </div>
               </SheetContent>
             </Sheet>
